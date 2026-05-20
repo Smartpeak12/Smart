@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites - SmartPeak Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🏠 SmartPeak Real Estate</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="admin.html">Admin</a>
+                <button id="theme-toggle" class="theme-btn">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin: 2rem auto;">
+        <h1>Your Favorite Properties</h1>
+        <div class="properties-grid" id="favorites-grid">
+            <!-- Favorites will be loaded here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 SmartPeak Real Estate. All rights reserved.</p>
+    </footer>
+
+    <script src="dark-mode.js"></script>
+    <script>
+        let properties = JSON.parse(localStorage.getItem('properties')) || [
+            {
+                id: 1,
+                title: "Modern Apartment",
+                price: 250000,
+                type: "sale",
+                location: "Downtown",
+                bedrooms: 2,
+                bathrooms: 1,
+                sqft: 1200,
+                image: "🏢"
+            },
+            {
+                id: 2,
+                title: "Cozy Studio",
+                price: 1200,
+                type: "rent",
+                location: "Midtown",
+                bedrooms: 1,
+                bathrooms: 1,
+                sqft: 600,
+                image: "🏠"
+            },
+            {
+                id: 3,
+                title: "Luxury Villa",
+                price: 750000,
+                type: "sale",
+                location: "Suburbs",
+                bedrooms: 4,
+                bathrooms: 3,
+                sqft: 3500,
+                image: "🏡"
+            },
+            {
+                id: 4,
+                title: "Family Home",
+                price: 1800,
+                type: "rent",
+                location: "Residential Area",
+                bedrooms: 3,
+                bathrooms: 2,
+                sqft: 2000,
+                image: "🏘️"
+            }
+        ];
+        
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        function displayFavorites() {
+            const grid = document.getElementById('favorites-grid');
+            grid.innerHTML = '';
+
+            const favoriteProperties = properties.filter(p => favorites.includes(p.id));
+
+            if (favoriteProperties.length === 0) {
+                grid.innerHTML = '<p>No favorite properties yet</p>';
+                return;
+            }
+
+            favoriteProperties.forEach(property => {
+                const card = document.createElement('div');
+                card.className = 'property-card';
+                card.innerHTML = `
+                    <div class="property-image">${property.image}</div>
+                    <div class="property-info">
+                        <div class="property-type">${property.type === 'sale' ? 'For Sale' : 'For Rent'}</div>
+                        <h3>${property.title}</h3>
+                        <div class="property-price">${property.type === 'sale' ? '$' + property.price.toLocaleString() : '$' + property.price + '/month'}</div>
+                        <div class="property-details">
+                            <span>📍 ${property.location}</span>
+                            <span>🛏️ ${property.bedrooms} beds</span>
+                            <span>🚿 ${property.bathrooms} baths</span>
+                        </div>
+                        <p>${property.sqft} sq ft</p>
+                        <div class="property-actions">
+                            <button class="btn-primary" onclick="alert('Property details for ${property.title}')">View Details</button>
+                            <button class="btn-secondary" onclick="removeFavorite(${property.id})">Remove</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function removeFavorite(id) {
+            favorites = favorites.filter(f => f !== id);
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            displayFavorites();
+        }
+
+        document.addEventListener('DOMContentLoaded', displayFavorites);
+    </script>
+</body>
+</html>

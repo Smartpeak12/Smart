@@ -1,0 +1,18 @@
+{
+  "name": "SmartPeak Real Estate",
+  "short_name": "SmartPeak RE",
+  "description": "Find your dream property - Buy, Sell, and Rent",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6B46C1",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><text x='50%' y='50%' font-size='100' text-anchor='middle' dominant-baseline='middle'>🏠</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
