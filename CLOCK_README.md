@@ -1,1 +1,228 @@
-# Digital Clock - Multiple Time Zones\n\nA modern, interactive digital clock application that displays current time across different time zones worldwide.\n\n## Features\n\n✅ **Real-time Clock** - Updates every second\n✅ **Multiple Time Zones** - Display 26+ time zones\n✅ **Add/Remove Time Zones** - Customize your display\n✅ **Time Format Toggle** - Switch between 12-hour and 24-hour formats\n✅ **Search Functionality** - Find specific time zones\n✅ **Statistics** - View time zone statistics\n✅ **Day/Night Indicator** - Visual time of day indicator (☀️/🌙)\n✅ **Dark Mode** - Light/Dark theme toggle\n✅ **Responsive Design** - Works on all devices\n✅ **Local Storage** - Saves your preferences\n\n## Time Zones Included\n\n- **UTC/GMT** - Coordinated Universal Time\n- **Europe** - CET, EET, MSK, etc.\n- **Asia** - IST, JST, SGT, HKT, etc.\n- **Americas** - PST, MST, CST, EST, BRT\n- **Australia/Pacific** - AEST, NZST\n- **Africa/Middle East** - GST, SAST, etc.\n\n## How to Use\n\n### View Current Time\n1. Open `clock.html` in your browser\n2. Main clock displays your local time\n3. Timezone cards show time in different regions\n\n### Add a Time Zone\n1. Click **+ Add Time Zone** button\n2. Select desired time zone from dropdown\n3. Click **Add** to add to display\n\n### Remove a Time Zone\n1. Find the time zone card\n2. Click **Remove** button\n3. Time zone will be removed from display\n\n### Search Time Zones\n1. Type in search box (e.g., \"Tokyo\", \"UTC+8\")\n2. Matching time zones will be highlighted\n3. Clear search to show all again\n\n### Change Time Format\n1. Select **12-Hour** or **24-Hour** format\n2. All clocks update immediately\n3. Format is saved in your browser\n\n### Toggle Dark Mode\n1. Click moon/sun icon in navbar\n2. Theme switches to dark/light mode\n3. Preference is saved\n\n## Statistics\n\nThe stats section shows:\n- **Total Time Zones** - Number of zones being displayed\n- **Earliest Time** - Earliest hour shown\n- **Latest Time** - Latest hour shown  \n- **Daytime Zones** - How many zones are between 6 AM - 6 PM\n\n## Time Zone List\n\n### UTC/GMT (0)\n- UTC, GMT (London)\n\n### Europe\n- CET +1 (Paris, Berlin)\n- EET +2 (Cairo, Athens)\n- MSK +3 (Moscow)\n\n### Middle East/Asia\n- GST +4 (Dubai)\n- PKT +5 (Karachi)\n- IST +5:30 (India)\n- BDT +6 (Bangladesh)\n- ICT +7 (Bangkok, Ho Chi Minh)\n- CST +8 (Beijing)\n- JST +9 (Tokyo, Seoul)\n\n### Pacific\n- AEST +10 (Sydney)\n- NZST +12 (Auckland)\n\n### Americas\n- HST -10 (Hawaii)\n- PST -8 (Los Angeles)\n- MST -7 (Denver)\n- CST -6 (Chicago)\n- EST -5 (New York)\n\n### South America\n- BRT -3 (Brasília)\n- ART -3 (Buenos Aires)\n\n## File Structure\n\n```\nclock.html          - Main HTML page\nclock-styles.css    - Complete CSS styling\nclock-app.js        - Application logic and time calculations\n```\n\n## Technologies Used\n\n- **HTML5** - Structure\n- **CSS3** - Styling with gradients and animations\n- **JavaScript** - Real-time clock logic\n- **LocalStorage** - Data persistence\n\n## Browser Support\n\n- Chrome 90+\n- Firefox 88+\n- Safari 14+\n- Edge 90+\n\n## Features Breakdown\n\n### Real-time Updates\n- Clock updates every second\n- Accurate time calculation for all time zones\n- No server required (client-side only)\n\n### Time Zone Management\n- Add/remove time zones dynamically\n- Default 3 time zones on load\n- Up to 26 time zones available\n- Custom selection per user\n\n### Display Options\n- 12-hour format (with AM/PM)\n- 24-hour format (00:00 to 23:59)\n- Full date display with day of week\n- UTC offset display\n\n### Visual Indicators\n- ☀️ Daytime (6 AM - 6 PM)\n- 🌙 Evening (6 PM - 12 AM)\n- 🌑 Night (12 AM - 6 AM)\n- Color-coded cards\n- Gradient backgrounds\n\n### Statistics Panel\n- Total active time zones\n- Earliest/latest hours\n- Daytime zone count\n- Real-time updates\n\n### Dark Mode\n- Toggle between light and dark themes\n- System preference detection option\n- Smooth color transitions\n- Saves user preference\n\n## Customization\n\n### Add More Time Zones\nEdit `TIMEZONES` array in `clock-app.js`:\n\n```javascript\nconst TIMEZONES = [\n    { name: 'Your City', offset: 0 },\n    // More zones...\n];\n```\n\n### Change Colors\nEdit CSS variables in `clock-styles.css`:\n\n```css\n:root {\n    --primary-color: #6B46C1;\n    --secondary-color: #EC4899;\n    // More colors...\n}\n```\n\n### Modify Update Frequency\nChange interval in `clock-app.js`:\n\n```javascript\nsetInterval(() => this.updateAllClocks(), 1000); // milliseconds\n```\n\n## Performance\n\n- Lightweight (~15KB total)\n- No external dependencies\n- Efficient DOM updates\n- Smooth animations\n- Low memory usage\n\n## Future Enhancements\n\n- [ ] World map with highlighted time zones\n- [ ] Analog clock display option\n- [ ] Weather for each time zone\n- [ ] Sunrise/sunset times\n- [ ] City landmarks display\n- [ ] Timer and stopwatch\n- [ ] Alarm functionality\n- [ ] Multiple languages\n\n## License\n\nMIT License - Free to use and modify\n\n## Support\n\nFor issues or feature requests, please open a GitHub issue.\n\n---\n\n**Made with ❤️ by SmartPeak Team**\n"
+# Digital Clock - Multiple Time Zones
+
+A modern, interactive digital clock application that displays current time across different time zones worldwide.
+
+## Features
+
+✅ **Real-time Clock** - Updates every second
+✅ **Multiple Time Zones** - Display 26+ time zones
+✅ **Add/Remove Time Zones** - Customize your display
+✅ **Time Format Toggle** - Switch between 12-hour and 24-hour formats
+✅ **Search Functionality** - Find specific time zones
+✅ **Statistics** - View time zone statistics
+✅ **Day/Night Indicator** - Visual time of day indicator (☀️/🌙)
+✅ **Dark Mode** - Light/Dark theme toggle
+✅ **Responsive Design** - Works on all devices
+✅ **Local Storage** - Saves your preferences
+
+## Time Zones Included
+
+- **UTC/GMT** - Coordinated Universal Time
+- **Europe** - CET, EET, MSK, WET, WEST
+- **Asia** - IST, JST, SGT, HKT, ICT, CST, BDT, PKT
+- **Americas** - PST, MST, CST, EST, BRT, ART, AKST, HST
+- **Australia/Pacific** - AEST, NZST
+- **Middle East/Africa** - GST
+
+## How to Use
+
+### View Current Time
+1. Open `clock.html` in your browser
+2. Main clock displays your local time
+3. Timezone cards show time in different regions
+
+### Add a Time Zone
+1. Click **+ Add Time Zone** button
+2. Select desired time zone from dropdown
+3. Click **Add** to add to display
+
+### Remove a Time Zone
+1. Find the time zone card
+2. Click **Remove** button
+3. Time zone will be removed from display
+
+### Search Time Zones
+1. Type in search box (e.g., "Tokyo", "UTC+8")
+2. Matching time zones will be highlighted
+3. Clear search to show all again
+
+### Change Time Format
+1. Select **12-Hour** or **24-Hour** format
+2. All clocks update immediately
+3. Format is saved in your browser
+
+### Toggle Dark Mode
+1. Click moon/sun icon in navbar
+2. Theme switches to dark/light mode
+3. Preference is saved
+
+## Statistics
+
+The stats section shows:
+- **Total Time Zones** - Number of zones being displayed
+- **Earliest Time** - Earliest hour shown
+- **Latest Time** - Latest hour shown
+- **Daytime Zones** - How many zones are between 6 AM - 6 PM
+
+## Time Zone List
+
+### UTC/GMT (0)
+- UTC, GMT (London)
+- WET (Lisbon)
+
+### Europe
+- CET +1 (Paris, Berlin)
+- WEST +1 (Lisbon Summer)
+- EET +2 (Cairo, Athens)
+- MSK +3 (Moscow)
+
+### Middle East/Asia
+- GST +4 (Dubai)
+- PKT +5 (Karachi)
+- IST +5:30 (India)
+- BDT +6 (Bangladesh)
+- ICT +7 (Bangkok, Ho Chi Minh)
+- CST +8 (Beijing)
+- SGT +8 (Singapore)
+- HKT +8 (Hong Kong)
+- JST +9 (Tokyo, Seoul)
+
+### Pacific
+- AEST +10 (Sydney)
+- NZST +12 (Auckland)
+
+### Americas
+- AKST -9 (Anchorage)
+- HST -10 (Hawaii)
+- PST -8 (Los Angeles)
+- MST -7 (Denver)
+- CST -6 (Chicago)
+- EST -5 (New York)
+
+### South America
+- BRT -3 (Brasília)
+- ART -3 (Buenos Aires)
+
+## File Structure
+
+```
+clock.html          - Main HTML page
+clock-styles.css    - Complete CSS styling
+clock-app.js        - Application logic and time calculations
+CLOCK_README.md     - This documentation
+```
+
+## Technologies Used
+
+- **HTML5** - Structure
+- **CSS3** - Styling with gradients and animations
+- **JavaScript** - Real-time clock logic
+- **LocalStorage** - Data persistence
+
+## Browser Support
+
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
+
+## Features Breakdown
+
+### Real-time Updates
+- Clock updates every second
+- Accurate time calculation for all time zones
+- No server required (client-side only)
+
+### Time Zone Management
+- Add/remove time zones dynamically
+- Default 3 time zones on load (UTC, IST, JST)
+- Up to 26 time zones available
+- Custom selection per user
+
+### Display Options
+- 12-hour format (with AM/PM)
+- 24-hour format (00:00 to 23:59)
+- Full date display with day of week
+- UTC offset display
+
+### Visual Indicators
+- ☀️ Daytime (6 AM - 6 PM)
+- 🌅 Evening (6 PM - 9 PM)
+- 🌙 Night (9 PM - 6 AM)
+- Color-coded cards with left border
+- Gradient backgrounds
+
+### Statistics Panel
+- Total active time zones
+- Earliest/latest hours
+- Daytime zone count
+- Real-time updates
+
+### Dark Mode
+- Toggle between light and dark themes
+- System preference detection option
+- Smooth color transitions
+- Saves user preference
+
+## Customization
+
+### Add More Time Zones
+Edit `TIMEZONES` array in `clock-app.js`:
+
+```javascript
+const TIMEZONES = [
+    { name: 'Your City', offset: 0, country: 'Country' },
+    // More zones...
+];
+```
+
+### Change Colors
+Edit CSS variables in `clock-styles.css`:
+
+```css
+:root {
+    --primary-color: #6B46C1;
+    --secondary-color: #EC4899;
+    // More colors...
+}
+```
+
+### Modify Update Frequency
+Change interval in `clock-app.js`:
+
+```javascript
+setInterval(() => this.updateAllClocks(), 1000); // milliseconds
+```
+
+## Performance
+
+- Lightweight (~20KB total)
+- No external dependencies
+- Efficient DOM updates
+- Smooth animations
+- Low memory usage
+
+## Future Enhancements
+
+- [ ] World map with highlighted time zones
+- [ ] Analog clock display option
+- [ ] Weather for each time zone
+- [ ] Sunrise/sunset times
+- [ ] City landmarks display
+- [ ] Timer and stopwatch
+- [ ] Alarm functionality
+- [ ] Multiple languages
+- [ ] Timezone meeting scheduler
+- [ ] Time zone comparison
+
+## License
+
+MIT License - Free to use and modify
+
+## Support
+
+For issues or feature requests, please open a GitHub issue.
+
+---
+
+**Made with ❤️ by SmartPeak Team**

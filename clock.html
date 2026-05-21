@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Multiple Time Zones</title>
+    <link rel="stylesheet" href="clock-styles.css">
+    <meta name="description" content="Real-time digital clock showing time across multiple time zones worldwide">
+    <meta name="theme-color" content="#6B46C1">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🕐 Digital Clock</div>
+            <div class="nav-links">
+                <a href="index.html">← Back to Real Estate</a>
+                <button id="theme-toggle" class="theme-btn">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Clock Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Local Time</h1>
+            <div class="main-clock-container">
+                <div class="main-clock">
+                    <div id="main-time" class="main-time">--:--:--</div>
+                    <div id="main-date" class="main-date">Loading...</div>
+                </div>
+                <div class="format-selector">
+                    <button class="format-btn active" data-format="12">12-Hour</button>
+                    <button class="format-btn" data-format="24">24-Hour</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls Section -->
+    <section class="controls">
+        <div class="container">
+            <div class="controls-grid">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="🔍 Search time zones...">
+                </div>
+                <button class="btn-primary" id="add-zone-btn">+ Add Time Zone</button>
+                <button class="btn-secondary" id="reset-btn">Reset Default</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Time Zone Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Add Time Zone</h2>
+            <select id="timezone-select">
+                <option value="">Select a time zone...</option>
+            </select>
+            <button class="btn-primary" id="modal-add-btn">Add</button>
+        </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <h2>Time Zone Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-total">0</div>
+                    <div class="stat-label">Active Zones</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-earliest">--:--</div>
+                    <div class="stat-label">Earliest</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-latest">--:--</div>
+                    <div class="stat-label">Latest</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="stat-daytime">0</div>
+                    <div class="stat-label">Daytime Zones</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time Zones Grid -->
+    <section class="clocks">
+        <div class="container">
+            <h2>Time Zones</h2>
+            <div class="clocks-grid" id="clocks-grid">
+                <!-- Clock cards will be generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 SmartPeak Digital Clock. Showing accurate time across the globe.</p>
+    </footer>
+
+    <script src="clock-app.js"></script>
+</body>
+</html>
